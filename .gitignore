@@ -1,0 +1,12 @@
+# Java Compiled Output
+target/
+*.class
+
+# IDE & OS Metadata
+.vscode/
+.idea/
+*.DS_Store
+
+# Environment & Credentials
+.env
+*.log
