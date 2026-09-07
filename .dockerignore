@@ -1,0 +1,18 @@
+# Target compiled outputs
+target/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# Git history
+.git/
+.gitignore
+
+# Frontend directory (Vercel builds this separately)
+frontend/
+
+# Local environment files
+.env
+*.log
