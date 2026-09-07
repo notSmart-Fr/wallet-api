@@ -10,7 +10,7 @@ target/
 .git/
 .gitignore
 
-# Frontend directory (Vercel builds this separately)
+# Frontend directory (built separately from the backend image)
 frontend/
 
 # Local environment files

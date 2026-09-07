@@ -5,8 +5,7 @@ import java.time.OffsetDateTime;
 import java.util.UUID;
 
 public record AccountResponse(
-    UUID accountId,
-    UUID userId,
+    UUID id,
     BigDecimal balance,
     OffsetDateTime createdAt
 ) {}

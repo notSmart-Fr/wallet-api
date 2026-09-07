@@ -120,8 +120,8 @@ specs/[###-feature]/
 ### Source Code (repository root)
 
 ```text
-# Monorepo web application: Spring Boot API at repo root, Next.js app in /frontend
-src/main/java/com/wallet/api/
+# Monorepo web application: Spring Boot API in /backend, Next.js app in /frontend
+backend/src/main/java/com/wallet/api/
 ├── WalletApiApplication.java
 ├── config/
 │   ├── SecurityConfig.java              # Supabase JWT resource-server config (JWKS)
@@ -138,11 +138,11 @@ src/main/java/com/wallet/api/
         ├── Transaction.java, TransactionRepository.java, TransactionController.java
         └── dto/ (history query/response records — Phase 1)
 
-src/main/resources/
+backend/src/main/resources/
 ├── application.yml                      # spring.threads.virtual.enabled, JPA, JWKS issuer/jwk-set-uri
 └── db/migration/V1__init_schema.sql     # accounts, transactions tables (NUMERIC(19,4))
 
-src/test/java/com/wallet/api/            # unit + integration + concurrency tests per feature
+backend/src/test/java/com/wallet/api/    # unit + integration + concurrency tests per feature
 
 frontend/
 ├── src/
@@ -160,13 +160,13 @@ frontend/
 │       └── supabase/{client,server}.ts
 └── (tests to be added — see research.md)
 
-Dockerfile                                 # multi-stage: eclipse-temurin:25-jdk-alpine build → 25-jre-alpine runtime
+backend/Dockerfile                         # multi-stage: eclipse-temurin:25-jdk-alpine build → 25-jre-alpine runtime
 docker-compose.yml                         # local Postgres/PgAdmin (new, Phase 1 output referenced in quickstart.md)
 ```
 
-**Structure Decision**: Web application monorepo — Option 2 pattern, but with the backend at the
-repository root (not under `backend/`) per existing project layout, and the Next.js frontend under
-`/frontend`. Both already exist and are extended in place; no restructuring required.
+**Structure Decision**: Web application monorepo — Option 2 pattern, with the Spring Boot backend
+under `/backend` and the Next.js frontend under `/frontend`. Shared infrastructure remains at the
+repository root.
 
 ## Complexity Tracking
 

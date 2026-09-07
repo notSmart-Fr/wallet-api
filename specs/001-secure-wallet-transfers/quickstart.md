@@ -5,7 +5,7 @@ Validation guide for the feature described in [spec.md](./spec.md), designed per
 
 ## Prerequisites
 
-- Java 25, Maven wrapper (`./mvnw`), Docker/Docker Compose.
+- Java 25, Maven wrapper (`backend/mvnw`), Docker/Docker Compose.
 - A Supabase project with Auth enabled (project ref, JWKS endpoint reachable) and a Postgres
   database (local Docker Compose Postgres is sufficient for backend-only validation).
 - Node.js (per `frontend/package.json` engines) and a package manager for the `frontend/` workspace.
@@ -25,7 +25,7 @@ see research.md §9). Confirm `wallet_db` is reachable at `localhost:5432` match
 
 ```powershell
 $env:SUPABASE_PROJECT_REF = "<your-supabase-project-ref>"
-./mvnw spring-boot:run
+./backend/mvnw -f backend/pom.xml spring-boot:run
 ```
 
 Confirm startup logs show virtual threads enabled and the JWKS issuer/jwk-set-uri resolved.

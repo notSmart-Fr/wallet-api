@@ -113,10 +113,10 @@
 
 ## 9. Local orchestration & deployment
 
-- **Decision**: Add a `docker-compose.yml` at the repo root defining `postgres` (with a named
+- **Decision**: Keep `docker-compose.yml` at the repo root defining `postgres` (with a named
   volume) and `pgadmin` services for local development; rely on Spring Boot's Docker Compose
   integration (`spring-boot-docker-compose`) for automatic local discovery when running the app
-  outside its own container. The existing multi-stage `Dockerfile`
+  outside its own container. The backend's multi-stage `backend/Dockerfile`
   (`eclipse-temurin:25-jdk-alpine` build → `eclipse-temurin:25-jre-alpine` runtime, non-root
   `spring` user) is reused unchanged for the production image.
 - **Rationale**: Matches the required tech stack section 4; keeps local development
